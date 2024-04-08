@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Timestamp</title>
+    <style>
+        table, th, td {
+          border: 1px solid;
+        }
+
+        form {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        input {
+            margin: 5px;;
+        }
+        </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+            Enter youtube video link here:
+            <input type="text" name="link"><br>
+            <input type="submit" name="submit">
+    </form>
+    <h1>Title: <a style="color: black;" href={{ link }}> {{ title }}</a></h1>
+    <table>
+        <tr>
+          <th>Start Time</th>
+          <th>Text</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+          <td>
+            <a style="color: black;" href= {{ i.timestamp }}>
+              {{ i.start }}
+            </a>
+          </td>
+          <td>
+            {{ i.text }}
+        </td>
+        </tr>
+        {% endfor %}
+      </table>
+</body>
+</html>
