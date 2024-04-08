@@ -9,8 +9,8 @@
     ],
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "ytTime/ytTime/wsgi.py"
+        "src": "/",
+        "dest": "/"
       }
     ]
   }
